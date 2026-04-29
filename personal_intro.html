@@ -3,173 +3,408 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人介绍</title>
+  <title>周羽泉 - 个人简历</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
     
-    :root {
-      --bg: #0a0a0f;
-      --fg: #f5f5f7;
-      --muted: #6e6e73;
-      --accent: #ff6b35;
-      --card: rgba(255,255,255,0.03);
-      --border: rgba(255,255,255,0.08);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       font-family: 'Noto Sans SC', sans-serif;
-      background: var(--bg);
-      color: var(--fg);
+      background: #f0f2f5;
+      color: #1a1a2e;
       min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .resume {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    
+    /* 头部 */
+    .header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: #fff;
+      padding: 40px 40px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255,107,53,0.15);
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(99,102,241,0.1);
+    }
+    
+    .header-top {
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow-x: hidden;
-    }
-    
-    .bg-pattern {
-      position: fixed;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse at 20% 20%, rgba(255,107,53,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(99,102,241,0.06) 0%, transparent 50%);
-      pointer-events: none;
-    }
-    
-    .container {
+      gap: 24px;
       position: relative;
-      max-width: 600px;
-      width: 90%;
-      padding: 60px 40px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      backdrop-filter: blur(20px);
-      text-align: center;
+      z-index: 1;
     }
     
     .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 0 auto 24px;
-      box-shadow: 0 20px 40px rgba(255,107,53,0.2);
+      width: 100px;
+      height: 100px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
     }
     
-    .name {
-      font-family: 'Playfair Display', serif;
-      font-size: 36px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-    }
-    
-    .title {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: 500;
-      text-transform: uppercase;
+    .header-info h1 {
+      font-size: 32px;
+      font-weight: 900;
       letter-spacing: 2px;
-      margin-bottom: 24px;
+      margin-bottom: 4px;
     }
     
-    .bio {
-      color: var(--muted);
+    .header-info .job-title {
       font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 32px;
-      font-weight: 300;
+      color: #ff6b35;
+      font-weight: 500;
+      margin-bottom: 12px;
     }
     
-    .skills {
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-bottom: 32px;
-    }
-    
-    .skill {
-      padding: 8px 16px;
-      background: rgba(255,107,53,0.1);
-      border: 1px solid rgba(255,107,53,0.2);
-      border-radius: 20px;
-      font-size: 13px;
-      color: var(--fg);
-      transition: all 0.3s ease;
-    }
-    
-    .skill:hover {
-      background: rgba(255,107,53,0.2);
-      transform: translateY(-2px);
-    }
-    
-    .links {
-      display: flex;
       gap: 16px;
-      justify-content: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
     }
     
-    .link {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
+    .contact-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      text-decoration: none;
-      transition: all 0.3s ease;
+      gap: 5px;
+    }
+    
+    /* 主体 */
+    .body {
+      padding: 36px 40px;
+    }
+    
+    .section {
+      margin-bottom: 28px;
+    }
+    
+    .section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 14px;
+      padding-left: 12px;
+      border-left: 4px solid #ff6b35;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .section-title .icon {
       font-size: 18px;
     }
     
-    .link:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-3px);
+    /* 求职意向 */
+    .intent-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      margin: 0 auto 24px;
+    .intent-tag {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #fff5f0, #ffe8dd);
+      border: 1px solid #ffd4c4;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #c44d00;
+      font-weight: 500;
     }
     
-    @media (max-width: 480px) {
-      .container {
-        padding: 40px 24px;
-      }
-      .name {
-        font-size: 28px;
-      }
+    /* 教育背景 */
+    .edu-card {
+      background: #fafbff;
+      border: 1px solid #eef0f6;
+      border-radius: 10px;
+      padding: 18px 22px;
+    }
+    
+    .edu-school {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    
+    .edu-detail {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .courses {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    
+    .course-tag {
+      padding: 4px 10px;
+      background: #eef2ff;
+      border-radius: 12px;
+      font-size: 12px;
+      color: #4338ca;
+    }
+    
+    /* 技能 */
+    .skill-list {
+      list-style: none;
+    }
+    
+    .skill-item {
+      padding: 10px 0;
+      border-bottom: 1px dashed #eee;
+      display: flex;
+      gap: 10px;
+      line-height: 1.6;
+    }
+    
+    .skill-item:last-child {
+      border-bottom: none;
+    }
+    
+    .skill-num {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, #ff6b35, #ff8c5a);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .skill-text {
+      font-size: 14px;
+      color: #333;
+    }
+    
+    /* 实训经历 */
+    .exp-card {
+      padding: 14px 0;
+      border-left: 2px solid #e0e0e0;
+      padding-left: 18px;
+      margin-bottom: 4px;
+      position: relative;
+    }
+    
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 18px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ff6b35;
+      border: 2px solid #fff;
+    }
+    
+    .exp-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 4px;
+    }
+    
+    .exp-desc {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.7;
+    }
+    
+    /* 个人评价 */
+    .eval-list {
+      list-style: none;
+    }
+    
+    .eval-item {
+      padding: 10px 0;
+      display: flex;
+      gap: 10px;
+      line-height: 1.7;
+    }
+    
+    .eval-icon {
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    
+    .eval-text {
+      font-size: 14px;
+      color: #333;
+    }
+    
+    /* 底部 */
+    .footer {
+      text-align: center;
+      padding: 16px;
+      background: #f8f9fb;
+      font-size: 12px;
+      color: #999;
+    }
+    
+    @media (max-width: 600px) {
+      .body { padding: 24px 20px; }
+      .header { padding: 28px 20px 24px; }
+      .header-top { flex-direction: column; text-align: center; }
+      .contact-row { justify-content: center; }
+      .avatar { width: 80px; height: 80px; }
+      .header-info h1 { font-size: 26px; }
     }
   </style>
 </head>
 <body>
-  <div class="bg-pattern"></div>
-  <div class="container">
-    <img src="./ceac5358-873e-4d09-b5a7-5c214de0a68a.jpg" class="avatar" alt="头像" style="object-fit: cover; border-radius: 50%;">
-    <h1 class="name">周羽泉</h1>
-    <p class="title">陕西交通职业技术学院 · 新能源汽车技术专业</p>
-    <div class="divider"></div>
-    <p class="bio">陕西乾县人，专业成绩排名前30%，加权平均分82.38/100。<br><br>主修课程：机械基础、汽车构造、电工技术、底盘技术、智能网联、新能源汽车排障等。</p>
-    <div class="skills">
-      <span class="skill">Python</span>
-      <span class="skill">C编程</span>
-      <span class="skill">新能源汽车技术</span>
-      <span class="skill">智能网联</span>
+  <div class="resume">
+    <!-- 头部 -->
+    <div class="header">
+      <div class="header-top">
+        <img src="./ceac5358-873e-4d09-b5a7-5c214de0a68a.jpg" class="avatar" alt="周羽泉" style="object-fit: cover;">
+        <div class="header-info">
+          <h1>周 羽 泉</h1>
+          <p class="job-title">新能源汽车技术 · 应届毕业生</p>
+          <div class="contact-row">
+            <span class="contact-item">📞 18292976437</span>
+            <span class="contact-item">📧 2872637143@qq.com</span>
+            <span class="contact-item">🎂 20岁</span>
+            <span class="contact-item">📍 陕西乾县</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="links">
-      <a href="mailto:2872637143@qq.com" class="link" title="邮箱">📧</a>
-      <a href="#" class="link" title="微信">💬</a>
+
+    <!-- 主体 -->
+    <div class="body">
+      
+      <!-- 求职意向 -->
+      <div class="section">
+        <h2 class="section-title"><span class="icon">🎯</span> 求职意向</h2>
+        <div class="intent-tags">
+          <span class="intent-tag">新能源汽车维修技师</span>
+          <span class="intent-tag">三电检测技术员</span>
+          <span class="intent-tag">高压电工</span>
+          <span class="intent-tag">新能源售后维保</span>
+          <span class="intent-tag">汽车质检</span>
+        </div>
+      </div>
+
+      <!-- 教育背景 -->
+      <div class="section">
+        <h2 class="section-title"><span class="icon">🎓</span> 教育背景</h2>
+        <div class="edu-card">
+          <div class="edu-school">陕西职业技术学院</div>
+          <div class="edu-detail">新能源汽车技术专业 · 专科 | 2024.09 — 2027.06</div>
+          <div class="courses">
+            <span class="course-tag">新能源汽车构造</span>
+            <span class="course-tag">动力电池BMS</span>
+            <span class="course-tag">电机控制技术</span>
+            <span class="course-tag">整车高压安全</span>
+            <span class="course-tag">电控底盘检修</span>
+            <span class="course-tag">车载充电系统</span>
+            <span class="course-tag">汽车故障诊断</span>
+            <span class="course-tag">低压电器电路</span>
+            <span class="course-tag">底盘维修</span>
+            <span class="course-tag">故障排查</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 专业技能 -->
+      <div class="section">
+        <h2 class="section-title"><span class="icon">⚡</span> 专业技能</h2>
+        <ul class="skill-list">
+          <li class="skill-item"><span class="skill-num">1</span><span class="skill-text">熟悉纯电动、混动HEV/PHEV整车结构，掌握三电系统（电池、电机、电控）工作原理</span></li>
+          <li class="skill-item"><span class="skill-num">2</span><span class="skill-text">熟练高压安全操作规范，绝缘检测、高压断电、验电、高压部件拆装与防护作业</span></li>
+          <li class="skill-item"><span class="skill-num">3</span><span class="skill-text">会使用新能源专用诊断仪，读取故障码、数据流分析、电路排查、低压线路检修</span></li>
+          <li class="skill-item"><span class="skill-num">4</span><span class="skill-text">掌握动力电池PACK拆装、电芯检测、均衡维护、快充慢充故障排查</span></li>
+          <li class="skill-item"><span class="skill-num">5</span><span class="skill-text">熟悉电机控制器、DC-DC、OBC车载充电机、PTC暖风、压缩机故障检修</span></li>
+          <li class="skill-item"><span class="skill-num">6</span><span class="skill-text">看懂汽车电气原理图、线束图纸，熟练万用表、绝缘表、示波器基础检测</span></li>
+          <li class="skill-item"><span class="skill-num">7</span><span class="skill-text">了解新能源汽车底盘、制动、空调、转向系统维保，懂常规汽车保养流程</span></li>
+        </ul>
+      </div>
+
+      <!-- 实践/实训经历 -->
+      <div class="section">
+        <h2 class="section-title"><span class="icon">🔧</span> 实践/实训经历</h2>
+        
+        <div class="exp-card">
+          <div class="exp-title">校内新能源整车实训</div>
+          <div class="exp-desc">完成高压下电上锁、绝缘耐压检测、动力电池拆装检测、电机控制器拆装调试</div>
+        </div>
+        
+        <div class="exp-card">
+          <div class="exp-title">故障诊断实训</div>
+          <div class="exp-desc">整车低压上电故障、充放电异常、动力受限、仪表报警等常见故障排查维修</div>
+        </div>
+        
+        <div class="exp-card">
+          <div class="exp-title">电路检修实训</div>
+          <div class="exp-desc">高低压线束排查、保险继电器更换、低压辅助电路维修、CAN总线故障分析</div>
+        </div>
+        
+        <div class="exp-card">
+          <div class="exp-title">汽车常规维保</div>
+          <div class="exp-desc">刹车片更换、刹车油更换、底盘检查、轮胎养护、全车灯光检测</div>
+        </div>
+      </div>
+
+      <!-- 个人评价 -->
+      <div class="section">
+        <h2 class="section-title"><span class="icon">💡</span> 个人评价</h2>
+        <ul class="eval-list">
+          <li class="eval-item"><span class="eval-icon">✅</span><span class="eval-text">踏实认真、动手能力强，热爱新能源汽车行业，吃苦耐劳，服从车间排班与加班安排</span></li>
+          <li class="eval-item"><span class="eval-icon">✅</span><span class="eval-text">严格遵守高压安全操作规程，安全意识强，做事细致规范，责任心强</span></li>
+          <li class="eval-item"><span class="eval-icon">✅</span><span class="eval-text">学习接受快，善于总结维修经验，团队协作良好，沟通顺畅</span></li>
+          <li class="eval-item"><span class="eval-icon">✅</span><span class="eval-text">持有相关电工基础、汽车维修基础证书，愿意长期深耕新能源售后维修技术</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer">
+      © 2026 周羽泉 个人简历 · 联系方式：18292976437 / 2872637143@qq.com
     </div>
   </div>
 </body>
